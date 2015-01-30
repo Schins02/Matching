@@ -7,16 +7,43 @@
 //
 
 #import "ViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ViewController ()
+
+    
+
+
 
 @end
 
 @implementation ViewController
 
+- (IBAction)touchGameModeButton:(id)sender {
+}
+
+- (IBAction)touchPeekButton:(id)sender {
+}
+
+
+
+- (IBAction)touchResetButton:(id)sender {
+}
+
+
+
+- (IBAction)touchCardButton:(UIButton *)sender {
+}
+
+
+
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+   /// _btn.layer.borderWidth=1.0f;
+    //_btn.layer.borderColor=[[UIColor blackColor] CGColor];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -14,6 +14,10 @@
 		A416233A1A7B21A8009F4A44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A41623391A7B21A8009F4A44 /* Images.xcassets */; };
 		A416233D1A7B21A8009F4A44 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A416233B1A7B21A8009F4A44 /* LaunchScreen.xib */; };
 		A41623491A7B21A8009F4A44 /* MatchingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A41623481A7B21A8009F4A44 /* MatchingTests.m */; };
+		A41623551A7B21D3009F4A44 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = A41623541A7B21D3009F4A44 /* Card.m */; };
+		A41623581A7B21EB009F4A44 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = A41623571A7B21EB009F4A44 /* PlayingCard.m */; };
+		A416235B1A7B21FC009F4A44 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = A416235A1A7B21FC009F4A44 /* Deck.m */; };
+		A416235E1A7B2216009F4A44 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = A416235D1A7B2216009F4A44 /* PlayingCardDeck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,14 @@
 		A41623421A7B21A8009F4A44 /* MatchingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MatchingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A41623471A7B21A8009F4A44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A41623481A7B21A8009F4A44 /* MatchingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchingTests.m; sourceTree = "<group>"; };
+		A41623531A7B21CC009F4A44 /* Card.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		A41623541A7B21D3009F4A44 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		A41623561A7B21DD009F4A44 /* PlayingCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayingCard.h; sourceTree = "<group>"; };
+		A41623571A7B21EB009F4A44 /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCard.m; sourceTree = "<group>"; };
+		A41623591A7B21F4009F4A44 /* Deck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
+		A416235A1A7B21FC009F4A44 /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
+		A416235C1A7B2208009F4A44 /* PlayingCardDeck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayingCardDeck.h; sourceTree = "<group>"; };
+		A416235D1A7B2216009F4A44 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeck.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +93,7 @@
 		A416232B1A7B21A8009F4A44 /* Matching */ = {
 			isa = PBXGroup;
 			children = (
+				A41623521A7B21B3009F4A44 /* Model */,
 				A41623301A7B21A8009F4A44 /* AppDelegate.h */,
 				A41623311A7B21A8009F4A44 /* AppDelegate.m */,
 				A41623331A7B21A8009F4A44 /* ViewController.h */,
@@ -117,6 +130,21 @@
 				A41623471A7B21A8009F4A44 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A41623521A7B21B3009F4A44 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A41623531A7B21CC009F4A44 /* Card.h */,
+				A41623541A7B21D3009F4A44 /* Card.m */,
+				A41623561A7B21DD009F4A44 /* PlayingCard.h */,
+				A41623571A7B21EB009F4A44 /* PlayingCard.m */,
+				A41623591A7B21F4009F4A44 /* Deck.h */,
+				A416235A1A7B21FC009F4A44 /* Deck.m */,
+				A416235D1A7B2216009F4A44 /* PlayingCardDeck.m */,
+				A416235C1A7B2208009F4A44 /* PlayingCardDeck.h */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +250,10 @@
 				A41623351A7B21A8009F4A44 /* ViewController.m in Sources */,
 				A41623321A7B21A8009F4A44 /* AppDelegate.m in Sources */,
 				A416232F1A7B21A8009F4A44 /* main.m in Sources */,
+				A41623581A7B21EB009F4A44 /* PlayingCard.m in Sources */,
+				A416235E1A7B2216009F4A44 /* PlayingCardDeck.m in Sources */,
+				A416235B1A7B21FC009F4A44 /* Deck.m in Sources */,
+				A41623551A7B21D3009F4A44 /* Card.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
