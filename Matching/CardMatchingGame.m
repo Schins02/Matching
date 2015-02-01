@@ -11,6 +11,7 @@
 @interface CardMatchingGame()
 
 @property (nonatomic, readwrite) NSInteger score;
+@property (nonatomic, readwrite) NSInteger lastMatchingScore;
 @property (nonatomic, strong) NSMutableArray *cards;  //of type Card
 @property (nonatomic) BOOL twoCardMode;
 @property (nonatomic) NSInteger lastIndexFlipped;
@@ -51,6 +52,7 @@
     self.twoCardMode = twoCardMode;
     self.lastIndexFlipped = -1;
     self.cardsUp = 0;
+    self.lastMatchingScore = 0;
     
     return self;
 }
@@ -73,13 +75,7 @@ static int MISMATCH_PENALTY = 1;
         return;
     } else
         self.lastIndexFlipped = index;
-    
-    /*if(index == self.lastIndexFlipped && self.cardsUp == 1){
-        card.chosen = false;
-        self.cardsUp = 0;
-        return;
-    }*/
-    
+        
     if(!card.matched){
         
         self.score -= MISMATCH_PENALTY;
@@ -98,13 +94,19 @@ static int MISMATCH_PENALTY = 1;
 
 -(void) twoCardModeMatch: (Card *) card{
     
-    //Match against another card
+    //Match against one other card
     card.chosen = false;
     
     for(Card *otherCard in self.cards) {
         if(otherCard.chosen && !otherCard.matched){
             
-            self.score += [card match:otherCard];
+            self.lastMatchingScore = [card match:otherCard];
+            
+            if(self.lastMatchingScore != 0)
+                self.score += self.lastMatchingScore;
+            else
+                self.score -= MISMATCH_PENALTY;
+    
             card.matched = true;
             otherCard.matched = true;
             card.chosen = true;
@@ -116,11 +118,11 @@ static int MISMATCH_PENALTY = 1;
     
 }
 
-
 -(void) threeCardModeMatch: (Card *) card{
     
     //Match all three cards
     card.chosen = false;
+    self.lastMatchingScore = 0;
     int indexOfSecondCard = -1;
     int indexOfThirdCard = -1;
     
@@ -134,8 +136,8 @@ static int MISMATCH_PENALTY = 1;
                 indexOfSecondCard = i;
             else
                 indexOfThirdCard = i;
-     
-            self.score += [card match:otherCard];
+            
+            self.lastMatchingScore = [card match:otherCard];
         }
     }
     
@@ -143,15 +145,18 @@ static int MISMATCH_PENALTY = 1;
     Card *secondCard = self.cards[indexOfSecondCard];
     Card *thirdCard = self.cards[indexOfThirdCard];
     
-    self.score += [secondCard match:thirdCard];
+    self.lastMatchingScore += [secondCard match:thirdCard];
+    
+    if(self.lastMatchingScore != 0)
+        self.score += self.lastMatchingScore;
+    else
+        self.score -= MISMATCH_PENALTY;
     
     card.matched = true;
     secondCard.matched = true;
     thirdCard.matched = true;
     self.cardsUp = 0;
-    
 }
-
 
 @end
 

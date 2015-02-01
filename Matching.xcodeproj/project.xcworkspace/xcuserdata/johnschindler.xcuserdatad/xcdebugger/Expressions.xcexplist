@@ -32,5 +32,16 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "-[CardMatchingGame twoCardModeMatch:]:CardMatchingGame.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.lastMatchingScore">
+            </PersistentString>
+            <PersistentString
+               value = "self.score">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

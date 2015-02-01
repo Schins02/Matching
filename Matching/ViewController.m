@@ -79,6 +79,18 @@ const char HEART = 'e';
         Card *card = [self.game cardAtIndex:cardButtonIndex];
         [cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
         [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
+        //@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+        //@property (weak, nonatomic) IBOutlet UILabel *lastMatchingScoreLabel;
+        //@property (weak, nonatomic) IBOutlet UILabel *gamesPLayedLabel;
+        //@property (weak, nonatomic) IBOutlet UILabel *averageScoreLabel;
+        self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", (long)[self.game score]];
+        
+        
+        
+                                 
+        self.lastMatchingScoreLabel.text = [NSString stringWithFormat:@"Last Matching Score: %ld", (long)[self.game lastMatchingScore]];
+        /*self.gamesPLayedLabel.text = [NSString stringWithFormat:@"Flips: %d", self.flipCount];
+        self.averageScoreLabel.text = [NSString stringWithFormat:@"Flips: %d", self.flipCount];*/
         cardButton.enabled = !card.matched;
         
     }
