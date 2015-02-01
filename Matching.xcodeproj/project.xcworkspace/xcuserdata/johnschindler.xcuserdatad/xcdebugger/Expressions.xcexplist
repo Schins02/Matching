@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[ViewController game]:ViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[self.cardButtons count]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ViewController touchCardButton:]:ViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "sender">
+            </PersistentString>
+            <PersistentString
+               value = "[self.cardButtons count]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CardMatchingGame chooseCardAtIndex:]:CardMatchingGame.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.score">
+            </PersistentString>
+            <PersistentString
+               value = "self.lastIndexFlipped">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

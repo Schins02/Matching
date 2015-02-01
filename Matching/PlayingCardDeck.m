@@ -1,44 +1,24 @@
+#import "PlayingCardDeck.h"
 #import "PlayingCard.h"
 
-@implementation PlayingCard
+@implementation PlayingCardDeck
 
-@synthesize suit = _suit;
-
-- (NSString *)contents
+- (instancetype)init
 {
-    return [[PlayingCard rankStrings][self.rank] stringByAppendingString:self.suit];
-}
-
-+ (NSArray *)validSuits
-{
-    return @[@"♥", @"♣", @"♦", @"♠"];
-}
-
-+ (NSUInteger)maxRank {return [[self rankStrings] count] - 1; }
-
-- (void)setSuite:(NSString *)suit
-{
-    if ([[PlayingCard validSuits] containsObject: suit]){
-        _suit = suit;
+    self = [super init];
+    
+    if (self) {
+        for(NSString *suit in [PlayingCard validSuits]){
+            for(NSUInteger rank = 1; rank <= [PlayingCard maxRank]; rank++){
+                PlayingCard *card = [[PlayingCard alloc] init];
+                card.rank = rank;
+                card.suit = suit;
+                [self addCard:card];
+            }
+        }
     }
     
-}
-
-+ (NSArray *)rankStrings
-{
-    return @[@"?",@"A", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"J", @"Q", @"K"];
-}
-
--(NSString *)suit
-{
-    return _suit ? _suit : @"?";
-}
-
--(void)setRank:(NSUInteger)rank
-{
-    if(rank <= [PlayingCard maxRank]){
-        _rank = rank;
-    }
+    return self;
 }
 
 @end

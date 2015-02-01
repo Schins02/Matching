@@ -5,7 +5,7 @@
 
 @implementation Card
 
-- (int) match:(NSArray *)otherCards
+/*- (int) match:(NSArray *)otherCards
 {
     int score = 0;
     
@@ -16,6 +16,10 @@
     }
     
     return score;
+}*/
+
+-(int) match:(Card *)otherCard{
+    return [self.contents isEqualToString:otherCard.contents];
 }
 
 @end

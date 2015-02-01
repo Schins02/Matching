@@ -18,6 +18,7 @@
 		A41623581A7B21EB009F4A44 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = A41623571A7B21EB009F4A44 /* PlayingCard.m */; };
 		A416235B1A7B21FC009F4A44 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = A416235A1A7B21FC009F4A44 /* Deck.m */; };
 		A416235E1A7B2216009F4A44 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = A416235D1A7B2216009F4A44 /* PlayingCardDeck.m */; };
+		A4B73F2E1A7D6B51005D8778 /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B73F2D1A7D6B50005D8778 /* CardMatchingGame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		A416235A1A7B21FC009F4A44 /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
 		A416235C1A7B2208009F4A44 /* PlayingCardDeck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayingCardDeck.h; sourceTree = "<group>"; };
 		A416235D1A7B2216009F4A44 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeck.m; sourceTree = "<group>"; };
+		A4B73F2D1A7D6B50005D8778 /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardMatchingGame.m; sourceTree = "<group>"; };
+		A4B73F2F1A7D6BAE005D8778 /* CardMatchingGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardMatchingGame.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +146,8 @@
 				A416235A1A7B21FC009F4A44 /* Deck.m */,
 				A416235D1A7B2216009F4A44 /* PlayingCardDeck.m */,
 				A416235C1A7B2208009F4A44 /* PlayingCardDeck.h */,
+				A4B73F2D1A7D6B50005D8778 /* CardMatchingGame.m */,
+				A4B73F2F1A7D6BAE005D8778 /* CardMatchingGame.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 				A41623321A7B21A8009F4A44 /* AppDelegate.m in Sources */,
 				A416232F1A7B21A8009F4A44 /* main.m in Sources */,
 				A41623581A7B21EB009F4A44 /* PlayingCard.m in Sources */,
+				A4B73F2E1A7D6B51005D8778 /* CardMatchingGame.m in Sources */,
 				A416235E1A7B2216009F4A44 /* PlayingCardDeck.m in Sources */,
 				A416235B1A7B21FC009F4A44 /* Deck.m in Sources */,
 				A41623551A7B21D3009F4A44 /* Card.m in Sources */,
@@ -446,6 +452,7 @@
 				A416234E1A7B21A8009F4A44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A416234F1A7B21A8009F4A44 /* Build configuration list for PBXNativeTarget "MatchingTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +461,7 @@
 				A41623511A7B21A8009F4A44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
