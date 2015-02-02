@@ -16,8 +16,12 @@
     return [[PlayingCard rankStrings][self.rank] stringByAppendingString:self.suit];
 }
 
+/*+ (NSArray *)validSuits{
+    return @[@"♠", @"♣", @"♥", @"♦"];
+}*/
+
 + (NSArray *)validSuits{
-    return @[@"♥", @"♣", @"♦", @"♠"];
+    return @[@"♥︎", @"⬥", @"♣︎,", @"♠︎"];
 }
 
 + (NSUInteger)maxRank{

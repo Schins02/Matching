@@ -12,26 +12,19 @@
 
 @property (nonatomic, readwrite) NSInteger score;
 @property (nonatomic, readwrite) NSInteger lastMatchingScore;
-@property (nonatomic, strong) NSMutableArray *cards;  //of type Card
-@property (nonatomic) BOOL twoCardMode;
+@property (nonatomic, strong) NSMutableArray *cards;
 @property (nonatomic) NSInteger lastIndexFlipped;
 @property (nonatomic) NSInteger cardsUp;
-@property (nonatomic) NSInteger cardsInGame;
-//-(void) twoCardModeDraw: (Card *) card;
-//-(void) threeCardModeDraw: (Card *) card;
+@property (nonatomic, readwrite) int cardsInGame;
 
 @end
 
 @implementation CardMatchingGame
 
 - (NSMutableArray *) cards{
-    
     if(!_cards) _cards = [[NSMutableArray alloc] init];
     return _cards;
-    
 }
-
-
 
 - (instancetype) initWithCardCountAndGameMode:(NSUInteger)count :(Deck *)deck :(BOOL) twoCardMode{
     
@@ -61,32 +54,34 @@
     return (index < [self.cards count]) ? self.cards[index] : nil;
 }
 
+- (void) addPeakPenalty{
+    self.score -= 15;
+}
 
-static int MISMATCH_PENALTY = 1;
+static int FLIP_PENALTY = 1;
 -(void) chooseCardAtIndex:(NSUInteger)index{
     
     Card *card = [self cardAtIndex:index];
     
     //if user taps on same card they previously just tapped flip it back over
-    if(index == self.lastIndexFlipped){ //maybe checl for flipping??
+    if(index == self.lastIndexFlipped){ //maybe check for flipping??
         card.chosen = false;
         self.cardsUp = 0;
         self.lastIndexFlipped = -1;
         return;
     } else
         self.lastIndexFlipped = index;
-        
+    
     if(!card.matched){
         
-        self.score -= MISMATCH_PENALTY;
+        self.score -= FLIP_PENALTY;
         self.cardsUp += 1;
         card.chosen = true;
         
-        if(self.twoCardMode && self.cardsUp == 2){
+        if(self.twoCardMode && self.cardsUp == 2)
             [self twoCardModeMatch:card];
-        }else if(self.cardsUp == 3){
+        else if(self.cardsUp == 3)
             [self threeCardModeMatch:card];;
-        }
         
     }
     
@@ -101,16 +96,13 @@ static int MISMATCH_PENALTY = 1;
         if(otherCard.chosen && !otherCard.matched){
             
             self.lastMatchingScore = [card match:otherCard];
-            
-            if(self.lastMatchingScore != 0)
-                self.score += self.lastMatchingScore;
-            else
-                self.score -= MISMATCH_PENALTY;
+            self.score += self.lastMatchingScore;
     
             card.matched = true;
             otherCard.matched = true;
             card.chosen = true;
             self.cardsUp = 0;
+            self.cardsInGame -= 2;
             break;
             
         }
@@ -127,7 +119,7 @@ static int MISMATCH_PENALTY = 1;
     int indexOfThirdCard = -1;
     
     
-    for(int i = 0; i < self.cardsInGame; i++){
+    for(int i = 0; i < [self.cards count]; i++){
         Card *otherCard = self.cards[i];
         
         if(otherCard.chosen && !otherCard.matched){
@@ -146,15 +138,12 @@ static int MISMATCH_PENALTY = 1;
     Card *thirdCard = self.cards[indexOfThirdCard];
     
     self.lastMatchingScore += [secondCard match:thirdCard];
-    
-    if(self.lastMatchingScore != 0)
-        self.score += self.lastMatchingScore;
-    else
-        self.score -= MISMATCH_PENALTY;
+    self.score += self.lastMatchingScore;
     
     card.matched = true;
     secondCard.matched = true;
     thirdCard.matched = true;
+    self.cardsInGame -= 3;
     self.cardsUp = 0;
 }
 
